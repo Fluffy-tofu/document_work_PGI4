@@ -93,8 +93,13 @@ The model was trained over multiple epochs and its performance was calculated by
 
 After training I looked the results by plotting the training metrics and visualizing the models weight matrices.
 
-* **Training Metrics:** I plotted how the accuracy as well as the loss changed over time: 
-    
+* **Training Metrics:** I plotted how the accuracy as well as the loss changed over time:
+
+<p align="center">
+  <img src="img/accuracy_loss_plot.png" alt="Histogram unit_id/time">
+</p>
+
+    
 * **Weight Evolution:** I also plotted the weights over the epochs to see if there were any recognizable patterns forming:
 
 <p align="center">
