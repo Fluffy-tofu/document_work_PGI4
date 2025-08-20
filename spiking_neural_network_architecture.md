@@ -107,3 +107,7 @@ After training I looked the results by plotting the training metrics and visuali
   <img src="img/weights_SNN_change_over_epochs_FC2.png" alt="Histogram unit_id/time">
 </p>
 
+<p align="center">
+  <img src="img/epoch1_weight_matrix.png" alt="Histogram unit_id/time">
+  <img src="img/epoch30_weight_matrix.png" alt="Histogram unit_id/time">
+</p>
