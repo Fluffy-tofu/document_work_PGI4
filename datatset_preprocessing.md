@@ -56,3 +56,4 @@ The main goal was also to reduce the number of necessary input neurons. At first
   <img src="img/plot_pooling_threshold.png" alt="compare different pooling thresholds">
 </p>
 
+In the end I managed to reduce the number of input neurons necessary down from 700 to just 183. Although to really make sure this data still resembled the original and was of high quality more testing needed to be done.
