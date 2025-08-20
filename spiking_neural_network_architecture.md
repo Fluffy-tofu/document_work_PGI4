@@ -49,24 +49,21 @@ Here are some different surrogate functions that I tried out (These are all copi
 
 - **Fast Sigmoid (`snn.surrogate.fast_sigmoid`):** This is the function I ended up using because I found that it brought the best results when looking at the accuracy:
 
-  $$\begin{align}
-  S &≈ \frac{U}{1 + k|U|} \\
-  \frac{∂S}{∂U} &= \frac{1}{(1+k|U|)^2}
-  \end{align}$$
+  $S ≈ \frac{U}{1 + k|U|}$
+  
+  $\frac{∂S}{∂U} = \frac{1}{(1+k|U|)^2}$
 
 - **Arctangent (`snn.surrogate.atan`):** This is the default surrogate function used by `snntorch` if you don't specify otherwise.
 
-  $$\begin{align}
-  S &≈ \frac{1}{π}\text{arctan}\left(πU \frac{α}{2}\right) \\
-  \frac{∂S}{∂U} &= \frac{1}{π}\frac{1}{\left(1+\left(πU\frac{α}{2}\right)^2\right)}
-  \end{align}$$
+  $S ≈ \frac{1}{π}\text{arctan}\left(πU \frac{α}{2}\right)$
+  
+  $\frac{∂S}{∂U} = \frac{1}{π}\frac{1}{\left(1+\left(πU\frac{α}{2}\right)^2\right)}$
 
 - **Sigmoid (`snn.surrogate.sigmoid`):** Similar to the fast sigmoid but slower as far I know due to it using an `exp()` function
 
-  $$\begin{align}
-  S &≈ \frac{1}{1 + {\rm exp}(-kU)} \\
-  \frac{∂S}{∂U} &= \frac{k{\rm exp}(-kU)}{[{\rm exp}(-kU)+1]^2}
-  \end{align}$$
+  $S ≈ \frac{1}{1 + {\rm exp}(-kU)}$
+  
+  $\frac{∂S}{∂U} = \frac{k{\rm exp}(-kU)}{[{\rm exp}(-kU)+1]^2}$
 
 In all cases, the $k$ parameter (slope) controls the steepness of the function. A steeper slope results in gradients that are closer to the actual step function's behavior but can still end up leading to worse accuracy due to it being less smooth.
 
