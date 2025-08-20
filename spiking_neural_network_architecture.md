@@ -13,7 +13,7 @@ For this is designed a simple two layer SNN.
 * **Model Layers:**
 
   
-    1.  **Input Layer:** A fully connected layer (`self.fc1`) that takes the preprocessed input data (183 input neurons) and maps it to a hidden layer with 256 neurons. It also converts the spikes into currents through a        simple linear calculation which calculates the weighted sum:
+    1.  **Input Layer:** A fully connected layer (`self.fc1`) that takes the preprocessed input data (183 input neurons) and maps it to a hidden layer with 256 neurons. It also converts the spikes into currents through a simple linear calculation which calculates the weighted sum:
 
    $$I = wx+t$$
 
@@ -96,4 +96,9 @@ After training I looked the results by plotting the training metrics and visuali
 * **Training Metrics:** I plotted how the accuracy as well as the loss changed over time: 
     
 * **Weight Evolution:** I also plotted the weights over the epochs to see if there were any recognizable patterns forming:
+
+<p align="center">
+  <img src="img/weights_SNN_change_over_epochs_FC1.png" alt="Histogram unit_id/time">
+  <img src="img/weights_SNN_change_over_epochs_FC2.png" alt="Histogram unit_id/time">
+</p>
 
