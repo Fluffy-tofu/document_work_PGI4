@@ -13,7 +13,7 @@ The Dataset was given in an `.h5` file. It represents spoken German and English 
 -   **`times`:** The exact time in milliseconds when the spike occurred.
 -   **`labels`:** The corresponding digit (0-9 for German, 10-19 for English).
 
-The Data is has the big temporal component of what unit was triggered at what time making it a good training set for SNNs.
+The Data has the big temporal component of what unit was triggered at what time making it a good training set for SNNs.
 
 ***
 
