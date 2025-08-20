@@ -52,25 +52,29 @@ $$S[t] = \Theta(U[t] - U_{\rm thr})$$
 * **Backward Pass:** During backpropagation the derivative of the surrogate function is used instead of the derivative of the Heaviside function. The `snntorch` library's `spike_grad` parameter handles this automatically. The derivative of the surrogate function is not zero like for the Heavyside function allowing backpropagation. The idea of using a surrogate function is bascially only a big approximation but it works great.
 
 * **Some different types Surrogate Gradient Functions:**
-  Here are some different surrogate functions that I tried out:
+  Here are some different surrogate functions that I tried out (These are all copied from [here](https://snntorch.readthedocs.io/en/latest/snntorch.surrogate.html):
+
+  
     * **Fast Sigmoid (`snn.surrogate.fast_sigmoid`):** This is the function I ended up using because I found that it brought the best results when looking at the accuracy:
 
-$$\frac{\partial S(U)}{\partial U} \approx \frac{\alpha \exp(-\alpha |U - U_{th}|)}{(1 + \exp(-\alpha |U - U_{th}|))^2}$$
+$$\begin{split}S&≈\frac{U}{1 + k|U|} \\
+\frac{∂S}{∂U}&=\frac{1}{(1+k|U|)^2}\end{split}$$
 
       
     * **Arctangent (`snn.surrogate.atan`):** This is the default surrogate function used by `snntorch` if you don't specify otherwise.
 
       
-$$\frac{\partial S(U)}{\partial U} \approx \frac{\alpha}{\pi(1 + \alpha^2(U - U_{th})^2)}$$
+$$\begin{split}S&≈\frac{1}{π}\text{arctan}(πU \frac{α}{2}) \\
+\frac{∂S}{∂U}&=\frac{1}{π}\frac{1}{(1+(πU\frac{α}{2})^2)}\end{split}$$
 
       
     * **Sigmoid (`snn.surrogate.sigmoid`):** Similar to the fast sigmoid but slower as far I know due to it using an `exp()` function
 
- 
- $$\frac{\partial S(U)}{\partial U} \approx \frac{1}{1 + \exp(-\alpha(U - U_{th}))}$$
+$$\begin{split}S&≈\frac{1}{1 + {\rm exp}(-kU)} \\
+\frac{∂S}{∂U}&=\frac{k{\rm exp}(-kU)}{[{\rm exp}(-kU)+1]^2}\end{split}$$
       
     
-    In all cases, the $\alpha$ parameter (slope) controls the steepness of the function. A steeper slope results in gradients that are closer to the actual step function's behavior but can still end up leading to worse       accuracy due to it being less smooth.
+    In all cases, the $k$ parameter (slope) controls the steepness of the function. A steeper slope results in gradients that are closer to the actual step function's behavior but can still end up leading to worse       accuracy due to it being less smooth.
 
 ***
 
