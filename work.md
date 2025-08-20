@@ -24,7 +24,7 @@ As outlined in the tutorial, this leads to the following equation to calculte th
 
 $$U(t+1) = U(t) + \frac{dt}{\tau} (-U(t) + RI)$$
 
-For actually implementing the equation i chose not realistic values to simplify the implementation for now.
+For actually implementing the equation i chose non realistic values to simplify the implementation for now.
 In the code i set up a `starting_parameters` dictionary to hold all the neuron's key variables:
    * **Time Constant ($\tau$):** `time_constant = 500` </br>
    * **Potential Threshold ($U_{th}$):** `potential_threshold = 10` </br>
@@ -46,4 +46,5 @@ Once the simulation finishes I use `matplotlib` to plot the recorded `time` and 
 In this plot I plotted different currents at three distinct equally big time intervals.  The current for the first interval being `I = 10`, for the second `I = 15` and for the thrid `I = 20`. 
 
 The plot shows nicely how the in the first interval the current isn't enough for the membrane potential to build up fast enough to reach the threshold. This is due to the Neuron being **leaky** and thus loosing membrane potential over time. The second and third intervals then show how the neuron reaches its threshold value faster under a higher current and how the potenital is then reset afterwards.
+
 
