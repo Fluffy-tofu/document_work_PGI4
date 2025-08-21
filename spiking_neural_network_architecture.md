@@ -54,7 +54,7 @@ Here are some different surrogate functions that I tried out (These are all copi
   $\frac{∂S}{∂U} = \frac{1}{(1+k|U|)^2}$
 
 <div align="center">
-  <img src="img/fast_sigmoid_func.png" alt="Plot of fast sigmoid"  width="70%" />
+  <img src="img/fast_sigmoid_func.png" alt="Plot of fast sigmoid"  width="40%" />
 </div>
 
 - **Arctangent (`snn.surrogate.atan`):** This is the default surrogate function used by `snntorch` if you don't specify otherwise.
@@ -64,7 +64,7 @@ Here are some different surrogate functions that I tried out (These are all copi
   $\frac{∂S}{∂U} = \frac{1}{π}\frac{1}{\left(1+\left(πU\frac{α}{2}\right)^2\right)}$
 
 <div align="center">
-  <img src="img/arctan_func.png" alt="Plot of arctan func"  width="70%" />
+  <img src="img/arctan_func.png" alt="Plot of arctan func"  width="40%" />
 </div>
 
 - **Sigmoid (`snn.surrogate.sigmoid`):** Similar to the fast sigmoid but slower as far I know due to it using an `exp()` function
@@ -74,7 +74,7 @@ Here are some different surrogate functions that I tried out (These are all copi
   $\frac{∂S}{∂U} = \frac{k{\rm exp}(-kU)}{[{\rm exp}(-kU)+1]^2}$
 
 <div align="center">
-  <img src="img/sigmoid_func.png" alt="Plot of sigmoid"  width="70%" />
+  <img src="img/sigmoid_func.png" alt="Plot of sigmoid"  width="40%" />
 </div>
 
 In all cases, the $k$ as well as the $\alpha$ parameter controls the steepness of the function. A steeper slope results in gradients that are closer to the actual step function's behavior but can still end up leading to worse accuracy due to it being less smooth.
