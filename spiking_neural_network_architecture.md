@@ -105,6 +105,9 @@ After training I looked the results by plotting the training metrics and visuali
   <img src="img/accuracy_loss_plot.png" alt="Accuracy and Loss Plot" />
 </div>
 
+It's apparent that the SNN gets up to about a 90% accuracy but then starts to stop making any progress. A similar progression can be observed regarding the validation set although this one peaks at about 85%. To further increase the accuracy I could try tweaking the architecture of the model or its learning rate as well as the optimizers other parameters.
+
+
 **Weight Evolution:** I also plotted the weights over the epochs to see if there were any recognizable patterns forming:
 
 <div align="center">
@@ -116,3 +119,5 @@ After training I looked the results by plotting the training metrics and visuali
   <img src="img/epoch1_weight_matrix.png" alt="Epoch 1 Weight Matrix" width="48%" />
   <img src="img/epoch30_weight_matrix.png" alt="Epoch 30 Weight Matrix" width="48%" />
 </div>
+
+Here I was able to observe a change in the distribution of the weights values. While they were quite spread out at the start being initalized by the Xavier uniform method at the last epoch they have now started to localize around 0. Despite this there might be some issues concerning the histograms as they tell a very different story to many of the other plots regarding the evolution of the weights .
